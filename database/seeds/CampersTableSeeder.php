@@ -18,11 +18,11 @@ class CampersTableSeeder extends Seeder
 
           for ($i = 0; $i < 50; $i++) {
               Camper::create([
+                  'id' => $faker->uuid,
                   'name' => $faker->firstNameMale,
                   'tentNumber' => $faker->numberBetween($min = 1, $max = 6),
                   'startingBalance' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
                   'currentBalance' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
-                  'uuid' => $faker->uuid,
               ]);
           }
     }

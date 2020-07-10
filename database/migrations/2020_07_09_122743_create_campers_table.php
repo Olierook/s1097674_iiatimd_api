@@ -14,11 +14,11 @@ class CreateCampersTable extends Migration
     public function up()
     {
         Schema::create('campers', function (Blueprint $table) {
+            $table->string('id')->primary();
             $table->string('name');
             $table->integer('tentNumber');
             $table->decimal('startingBalance');
             $table->decimal('currentBalance');
-            $table->string('uuid')->primary();
             $table->timestamps();
         });
     }

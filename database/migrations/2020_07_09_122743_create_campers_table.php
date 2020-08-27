@@ -15,7 +15,7 @@ class CreateCampersTable extends Migration
     {
         Schema::create('campers', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->unsignedBigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('name');
             $table->integer('tentNumber');
             $table->decimal('startingBalance');
@@ -26,6 +26,7 @@ class CreateCampersTable extends Migration
                     ->references('id')
                     ->on('users')
                     ->onDelete('cascade');
+            $table->index('user_id');
         });
     }
 

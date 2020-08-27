@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use JWTAuth;
 use App\Camper;
 
 class CamperController extends Controller
 {
+  protected $user;
+
+public function __construct()
+{
+    $this->user = JWTAuth::parseToken()->authenticate();
+}
     public function index()
     {
         return Camper::all();

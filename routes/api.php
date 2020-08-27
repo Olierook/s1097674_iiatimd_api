@@ -20,13 +20,15 @@ use App\Camper;
 
 Route::post('login', 'ApiController@login');
 Route::post('register', 'ApiController@register');
+Route::get('test', 'CamperController@index');
+
 
 // Route::group(['middleware' => 'auth:api'], function() {
 Route::group(['middleware' => 'auth.jwt'], function () {
 
     Route::get('logout', 'ApiController@logout');
     Route::get('user', 'ApiController@getAuthUser');
-    
+
     Route::get('campers', 'CamperController@index');
     Route::get('campers/{camper}', 'CamperController@show');
     Route::post('campers', 'CamperController@store');

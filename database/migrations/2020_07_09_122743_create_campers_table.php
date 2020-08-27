@@ -20,6 +20,11 @@ class CreateCampersTable extends Migration
             $table->decimal('startingBalance');
             $table->decimal('currentBalance');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('cascade');
         });
     }
 

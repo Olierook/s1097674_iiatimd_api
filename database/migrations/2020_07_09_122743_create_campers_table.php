@@ -15,7 +15,7 @@ class CreateCampersTable extends Migration
     {
         Schema::create('campers', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->unsignedInteger('user_id');
+            $table->bigInteger('user_id');
             $table->string('name');
             $table->integer('tentNumber');
             $table->decimal('startingBalance');

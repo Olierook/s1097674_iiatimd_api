@@ -12,8 +12,9 @@ class CamperController extends Controller
 
     public function __construct()
     {
-        $this->user = JWTAuth::parseToken()->authenticate();
+        $this->middleware('auth:api');
     }
+
 
     public function index()
     {

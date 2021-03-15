@@ -10,10 +10,10 @@ class CamperController extends Controller
 {
     protected $user;
 
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:api');
+    // }
 
 
     public function index()
@@ -36,13 +36,10 @@ class CamperController extends Controller
     public function update(Request $request, $id)
     {
         $camper = Camper::find($id);
-        foreach ($request->all() as $key => $value) {
-          $camper->$key = $value;
-        }
-        // $camper->update($request->all());
+        $camper->update($request->all());
         $camper->save();
 
-        return response()->json($request, 200);
+        return response()->json($camper, 200);
     }
 
     public function delete($id)

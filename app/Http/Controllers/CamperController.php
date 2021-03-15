@@ -21,9 +21,9 @@ class CamperController extends Controller
         return Camper::all();
     }
 
-    public function show(Camper $camper)
+    public function show($user_id)
     {
-        return $camper;
+        return Camper::all()->where("user_id", $user_id);
     }
 
     public function store(Request $request)

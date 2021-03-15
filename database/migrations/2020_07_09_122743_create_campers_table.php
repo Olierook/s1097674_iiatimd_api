@@ -17,7 +17,6 @@ class CreateCampersTable extends Migration
             $table->string('id')->primary();
             $table->bigInteger('user_id')->unsigned();
             $table->string('name');
-            $table->integer('tentNumber');
             $table->decimal('startingBalance');
             $table->decimal('currentBalance');
             $table->timestamps();

@@ -33,8 +33,9 @@ class CamperController extends Controller
         return response()->json($camper, 201);
     }
 
-    public function update(Request $request, Camper $camper)
+    public function update(Request $request, $uuid)
     {
+        $camper = Camper::all()->find($uuid);
         $camper->update($request->all());
 
         return response()->json($camper, 200);

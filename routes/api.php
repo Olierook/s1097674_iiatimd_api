@@ -24,5 +24,5 @@ Route::get('user', 'AuthController@me');
 Route::get('campers', 'CamperController@index');
 Route::get('campers/{user_id}', 'CamperController@show');
 Route::post('campers', 'CamperController@store');
-Route::put('campers/{uuid}', 'CamperController@update');
-Route::delete('campers/{uuid}', 'CamperController@delete');
+Route::put('campers/{id}', 'CamperController@update');
+Route::delete('campers/{id}', 'CamperController@delete');

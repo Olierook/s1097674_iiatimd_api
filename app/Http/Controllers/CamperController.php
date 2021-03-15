@@ -33,18 +33,18 @@ class CamperController extends Controller
         return response()->json($camper, 201);
     }
 
-    public function update(Request $request, $uuid)
+    public function update(Request $request, $id)
     {
-        $camper = Camper::all()->find($uuid);
+        $camper = Camper::find($id);
         $camper->update($request->all());
+        $camper->save();
 
         return response()->json($camper, 200);
     }
 
-    public function delete(Camper $camper)
+    public function delete($id)
     {
-        $camper->delete();
-
+        Camper::destroy($id);
         return response()->json(null, 204);
     }
 }

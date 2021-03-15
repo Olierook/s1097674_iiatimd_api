@@ -11,5 +11,5 @@ class Camper extends Model
    public $incrementing = false;
 
 
-    protected $fillable = ['name', 'tentNumber', 'startingBalance', 'currentBalance', 'id'];
+    protected $fillable = ['name', 'userId', 'startingBalance', 'currentBalance', 'id'];
 }

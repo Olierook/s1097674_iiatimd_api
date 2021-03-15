@@ -36,10 +36,13 @@ class CamperController extends Controller
     public function update(Request $request, $id)
     {
         $camper = Camper::find($id);
-        $camper->update($request->all());
+        foreach ($request->all() as $key => $value) {
+          $camper->$key = $value;
+        }
+        // $camper->update($request->all());
         $camper->save();
 
-        return response()->json($camper, 200);
+        return response()->json($request, 200);
     }
 
     public function delete($id)

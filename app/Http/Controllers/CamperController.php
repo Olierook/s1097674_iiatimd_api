@@ -36,8 +36,10 @@ class CamperController extends Controller
     public function update(Request $request, $id)
     {
         $camper = Camper::find($id);
-        $input = $request->all();
-        $camper->fill($input)->save();
+        $camper->currentBalance = $request->currentBalance;
+        $camper->save();
+        // $input = $request->all();
+        // $camper->fill($input)->save();
         //
         // $camper->update($request->all());
         // $camper->save();

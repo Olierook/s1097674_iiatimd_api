@@ -16,13 +16,16 @@ use Illuminate\Http\Request;
 
 use App\Camper;
 
-
-Route::post('register', 'AuthController@register');
-Route::post('login', 'AuthController@login');
-Route::get('logout', 'AuthController@logout');
-Route::get('user', 'AuthController@me');
-Route::get('campers', 'CamperController@index');
-Route::get('campers/{user_id}', 'CamperController@show');
-Route::post('campers', 'CamperController@store');
-Route::put('campers/{id}', 'CamperController@update');
-Route::delete('campers/{id}', 'CamperController@delete');
+Route::group([
+    'middleware' => 'api',
+], function ($router) {
+  Route::post('register', 'AuthController@register');
+  Route::post('login', 'AuthController@login');
+  Route::get('logout', 'AuthController@logout');
+  Route::get('user', 'AuthController@me');
+  Route::get('campers', 'CamperController@index');
+  Route::get('campers/{user_id}', 'CamperController@show');
+  Route::post('campers', 'CamperController@store');
+  Route::put('campers/{id}', 'CamperController@update');
+  Route::delete('campers/{id}', 'CamperController@delete');
+});
